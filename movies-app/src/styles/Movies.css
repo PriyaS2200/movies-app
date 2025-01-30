@@ -1,0 +1,15 @@
+.movie-container {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    padding: 20px;
+    gap: 20px;
+}
+
+.movie-container div {
+    border: 2px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}

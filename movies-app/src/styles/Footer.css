@@ -1,0 +1,15 @@
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg,rgb(223, 115, 115),rgb(226, 133, 152),lightcoral);
+    padding: 8px;
+}
+
+.footer-section {
+    text-decoration: none;
+    color: rgb(5, 129, 129);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px lightcyan;
+}
