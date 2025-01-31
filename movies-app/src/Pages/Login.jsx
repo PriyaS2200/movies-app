@@ -10,7 +10,7 @@ export const Login = () => {
     const handleLogin = async(e) => {
         e.preventDefault();
         try {
-            let response = await axios.post("https://canyon-grizzled-reason.glitch.me/login",{
+            let response = await axios.post("https://silken-resonant-surprise.glitch.me/login",{
                 username,
                 password,
             },
@@ -25,7 +25,7 @@ export const Login = () => {
         }
     }
     return (
-        <div>
+        <div className="login-container">
         <h1 className="login-title">Login </h1>
         <form onSubmit={handleLogin}>
             <input type="text" placeholder="Enter username"

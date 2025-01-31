@@ -1,6 +1,7 @@
-import axios from "axios"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "../styles/Movies.css";
 
 const initial = {
     title: "",
@@ -9,19 +10,27 @@ const initial = {
     genre: "",
     description: ""
 };
-export const AddMovie = () => {
+export const EditMovie = () => {
+    const { id } = useParams();
     const [formData, setFormData] = useState(initial);
     const navigate = useNavigate();
 
-    const handleInput = (e) => {
+    useEffect(() => {
+
+        axios.get(`https://silken-resonant-surprise.glitch.me/movies/${id}`)
+        .then((response) => setFormData(response.data))
+
+    },[id])
+
+    const handleData = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     }
 
-    const handleSubmit = (e) => {
+    const handleEdit = (e) => {
         e.preventDefault();
         console.log(formData);
-        axios.post(`https://silken-resonant-surprise.glitch.me/movies`,
+        axios.put(`https://silken-resonant-surprise.glitch.me/movies/${id}`,
             formData,
         )
             .then((response) => { console.log(response.data) })
@@ -30,18 +39,18 @@ export const AddMovie = () => {
 
     return (
         <div className="home-container">
-            <h1>Add Movie</h1>
-            <form onSubmit={handleSubmit}>
+        <h1>Edit Movie</h1>
+        <form onSubmit={handleEdit}>
                 <input type="text" name="title" placeholder="Title"
-                    value={formData.title} onChange={handleInput} />
+                    value={formData.title} onChange={handleData} />
                 <input type="text" name="poster" placeholder="Poster url"
-                    value={formData.poster} onChange={handleInput} />
+                    value={formData.poster} onChange={handleData} />
                 <input type="date" name="releaseDate" placeholder="Release Date"
-                    value={formData.releaseDate} onChange={handleInput} />
+                    value={formData.releaseDate} onChange={handleData} />
                 <input type="text" name="genre" placeholder="Genre"
-                    value={formData.genre} onChange={handleInput} />
+                    value={formData.genre} onChange={handleData} />
                 <input type="text" name="description" placeholder="Description"
-                    value={formData.description} onChange={handleInput} />
+                    value={formData.description} onChange={handleData} />
                 <input type="submit" value="Save" />
             </form>
         </div>

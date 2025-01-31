@@ -1,3 +1,13 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(45deg,salmon,lightyellow,salmon);
+    height: 373px;
+}
+
 form {
     display: flex;
     flex-direction: column;

@@ -9,6 +9,8 @@ import { Footer } from './components/Footer'
 import { PrivateRoute } from './components/PrivateRoute'
 import { MoviesDetails } from './Pages/MoviesDetails'
 import { AddMovie } from './Pages/AddMovie'
+import { EditMovie } from './Pages/EditMovie'
+import { NotFound } from './Pages/NotFound'
 
 
 function App() {
@@ -33,7 +35,13 @@ function App() {
             <AddMovie />
           </PrivateRoute>
         } />
+        <Route path="/edit-movie/:id" element={
+          <PrivateRoute>
+            <EditMovie />
+          </PrivateRoute>
+        } />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

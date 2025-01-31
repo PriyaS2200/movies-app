@@ -7,14 +7,14 @@ export const MoviesDetails = () => {
     const { id } = useParams();
     const [movieDetails, setMovieDetails] = useState("");
     useEffect(() => {
-          axios.get(`https://canyon-grizzled-reason.glitch.me/movies/${id}`)
+          axios.get(`https://silken-resonant-surprise.glitch.me/movies/${id}`)
           .then((response) => setMovieDetails(response.data))
     },[id])
 
     console.log(movieDetails)
 
     return (
-        <>
+        <div className="home-container">
             <div className="movie-card">
             <h1>Movies Details</h1>
             <img src={movieDetails.poster} alt={movieDetails.title} /> 
@@ -23,6 +23,6 @@ export const MoviesDetails = () => {
             <p>{movieDetails.description}</p>
             <p>{movieDetails.releaseDate}</p>
             </div>
-        </>
+        </div>
     )
 }
