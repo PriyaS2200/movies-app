@@ -14,7 +14,7 @@ export const ContextProvider = ({children}) => {
         setToken(token);
         localStorage.setItem("token",token);
         alert("Login successful!");
-        navigate( location.state.from);
+        navigate("/");
     }
 
     const logout = () => {

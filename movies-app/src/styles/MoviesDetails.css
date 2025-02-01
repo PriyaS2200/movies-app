@@ -1,7 +1,16 @@
 .movie-card {
     display: flex;
+    justify-content: center;
+}
+
+.movie-card-content {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+}
+
+.btn {
+    padding: 25px;
+    float: left;
 }
